@@ -17,9 +17,22 @@ public class Profile {
     @JoinColumn(name = "profile_id", referencedColumnName = "id")
     private List<House> houses;
 
+    @OneToMany
+    @JoinColumn(name = "profile_id", referencedColumnName = "id")
+    private List<Picture> pictures;
+
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id")
     private User user;
+
+
+    public List<Picture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<Picture> pictures) {
+        this.pictures = pictures;
+    }
 
     public List<House> getHouses() {
         return houses;
